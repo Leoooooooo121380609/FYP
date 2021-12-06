@@ -1,5 +1,5 @@
 // import Web3 from "web3";
-const Web3 = require("web3");
+import Web3, { utils, providers } from "web3";
 // import CricketContractArtifact from "../../build/contracts/CricketContract.json";
 // import OwnableArtifact from "../../build/contracts/Ownable.json";
 // import SafemathArtifact from "../../build/contracts/Safemath.json";
@@ -706,8 +706,8 @@ const App = {
       const { buyRandomCricket} = this.CricketContract.methods;
       const cricketname = document.getElementById('buy_Name').value;
       console.log(cricketname);
-      console.log(Web3.utils.toWei('0.1','ether'));
-      await  buyRandomCricket(cricketname).send({ from: this.account, value: Web3.utils.toWei('0.001','ether')});
+      console.log(utils.toWei('0.1','ether'));
+      await  buyRandomCricket(cricketname).send({ from: this.account, value: utils.toWei('0.001','ether')});
     this.cricketList();
     }catch(error){
       console.error("Unable to buy");
@@ -743,7 +743,7 @@ const App = {
       const {levelUp} = this.CricketContract.methods;
       const id = document.getElementById('levelup_ID').value;
       const idnum = parseInt(id);
-      await levelUp(idnum).send({ from: this.account, value: Web3.utils.toWei('0.001','ether')});
+      await levelUp(idnum).send({ from: this.account, value: utils.toWei('0.001','ether')});
     //  this.mAmount();
     this.cricketList();
     }catch(error){
@@ -811,7 +811,7 @@ const App = {
     //  const bettingStake = document.getElementById('bettingStake').value;
       const int_id = parseInt(bettingCricketId);
     //  const int_stake = parseInt(bettingStake);
-      await placeBet(int_id).send({ from: this.account, value: Web3.utils.toWei('1','ether')});
+      await placeBet(int_id).send({ from: this.account, value: utils.toWei('1','ether')});
     //  this.mAmount();
     this.cricketList();
     }catch(error){
@@ -965,7 +965,7 @@ window.addEventListener("load", function() {
     );
     // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
     App.web3 = new Web3(
-      new Web3.providers.HttpProvider("http://127.0.0.1:7545"),
+      new providers.HttpProvider("http://127.0.0.1:7545"),
     );
   }
   App.start();
