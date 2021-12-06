@@ -1,4 +1,5 @@
 import Web3 from "web3";
+import App from './src/App'
 // import CricketContractArtifact from "../../build/contracts/CricketContract.json";
 // import OwnableArtifact from "../../build/contracts/Ownable.json";
 // import SafemathArtifact from "../../build/contracts/Safemath.json";
@@ -969,3 +970,4 @@ window.addEventListener("load", function() {
   }
   App.start();
 });
+export default App;
