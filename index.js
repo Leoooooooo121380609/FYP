@@ -1,5 +1,4 @@
-// import Web3 from "web3";
-import Web3, { utils, providers } from "web3";
+import Web3 from "web3";
 // import CricketContractArtifact from "../../build/contracts/CricketContract.json";
 // import OwnableArtifact from "../../build/contracts/Ownable.json";
 // import SafemathArtifact from "../../build/contracts/Safemath.json";
