@@ -1,5 +1,5 @@
-import Web3 from "web3";
-import CricketContractArtifact from "../../build/contracts/CricketContract.json";
+// import Web3 from "web3";
+// import CricketContractArtifact from "../../build/contracts/CricketContract.json";
 // import OwnableArtifact from "../../build/contracts/Ownable.json";
 // import SafemathArtifact from "../../build/contracts/Safemath.json";
 const App = {
@@ -12,7 +12,7 @@ const App = {
     try {
       // 获取合约实例
       const networkId = await web3.eth.net.getId();
-      const deployedNetwork = CricketContractArtifact.networks[networkId];
+      // const deployedNetwork = CricketContractArtifact.networks[networkId];
       this.CricketContract = new web3.eth.Contract(
         //CricketContractArtifact.abi,
         [
