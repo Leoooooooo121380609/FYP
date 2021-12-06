@@ -1,2 +1,0 @@
-# FYP
-COMP4804 FYP
