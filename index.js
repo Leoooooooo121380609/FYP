@@ -656,7 +656,7 @@ const App = {
           }
         ],
         //deployedNetwork.address,
-        0x64F9C9c1a23DdcE3cE24bCAb829Ee8134ca8E048,
+        0x64F9C9c1a23DdcE3cE24bCAb829Ee8134ca8E048
       );
       // get accounts
       const accounts = await web3.eth.getAccounts();
