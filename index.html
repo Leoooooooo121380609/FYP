@@ -677,9 +677,9 @@
               // get accounts
               const accounts = await web3.eth.getAccounts();
               this.account = accounts[0];
-            //  this.mAmount();
+              this.mAmount();
               this.cricketList();
-            //  this.vAmount();
+              this.vAmount();
             } catch (error) {
               console.error("Could not connect to contract or chain.");
             }
