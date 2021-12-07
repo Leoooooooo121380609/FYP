@@ -1,4 +1,6 @@
-import Web3 from "web3";
+var web3 = new Web3(Web3.givenProvider);
+
+// import Web3 from "web3";
 // import CricketContractArtifact from "../../build/contracts/CricketContract.json";
 // import OwnableArtifact from "../../build/contracts/Ownable.json";
 // import SafemathArtifact from "../../build/contracts/Safemath.json";
