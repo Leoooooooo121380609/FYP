@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
-  "engines": {
-    "node": "14.16.0" // <-- This is too old, set it to the node version you are running locally (8.11.3)
-  },
+
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "dev": "webpack-dev-server --open --port 3002"
