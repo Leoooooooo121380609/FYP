@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
-
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "dev": "webpack-dev-server --open --port 3002"
