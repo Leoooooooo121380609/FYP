@@ -37,7 +37,7 @@
 	font-size: 30px;line-height: 1.8;color: #000;
 }
 .fxuelst .fcrick li .tet .t {
-	margin-bottom: 8px;overflow: hidden;
+	margin-bottom: 8px;overflow: auto;
 }
 .fxuelst .fcrick li .tet .t h6 {
 	float: left;font-size: 14px;line-height: 1.5;color: #666666;width: 13px;
