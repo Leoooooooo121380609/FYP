@@ -1,0 +1,115 @@
+.layout {
+	overflow: hidden;position: relative;
+	margin: 0 auto;background: #fff;font-family: 'mm';
+}
+.wrap {
+	width: 1200px;margin: 0 auto;
+}
+.fxuelst .flst {
+	background: #eefaf7;padding: 60px 0 50px;
+}
+.hd {
+	padding: 25px 0 55px;
+}
+.hd h3 {
+	font-size: 40px;line-height: 50px;color: #000000;font-weight: bold;
+	text-transform: uppercase;
+}
+.hd h6 {
+	font-weight: 100;text-transform: uppercase;
+	font-size: 26px;line-height: 42px;color: #666666;
+}
+.fxuelst .fcrick ul {
+	display: flex;flex-wrap:wrap;
+}
+.fxuelst .fcrick ul li {
+	width: 49%;box-shadow: 0 0 15px 2px #daf4ed;background: #fff;
+	padding: 25px 32px;display: block;flex-direction: row
+	-webkit-box-sizing: border-box;margin-bottom: 2%;
+	-moz-box-sizing: border-box;min-height: 380px;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.fxuelst .fcrick ul li:nth-child(2n) {
+	margin-left: 2%;
+}
+.ftlt h2 {
+	font-size: 30px;line-height: 1.8;color: #000;
+}
+.fxuelst .fcrick li .tet .t {
+	margin-bottom: 8px;overflow: hidden;
+}
+.fxuelst .fcrick li .tet .t h6 {
+	float: left;font-size: 14px;line-height: 1.5;color: #666666;width: 13px;
+}
+.fxuelst .fcrick li .tet .t h5 {
+	float: right;font-size: 14px;line-height: 1.5;color: #666666;
+	width: calc(100% - 13px);
+}
+.fxuelst .fcrick li .fpagels dl {
+	margin: 20px auto 0;font-size: 0;text-align: center;
+}
+.fxuelst .fcrick li .fpagels dd {
+	margin: 0 4px;display: inline-block;
+}
+.fxuelst .fcrick li .fpagels dd a {
+	display: block;min-width: 30px;line-height: 28px;
+	border: 1px solid #d2d2d2;border-radius: 2px;
+	font-size: 14px;text-align: center;color: #666666;
+	-webkit-box-sizing: border-box;transition: all 0.3s;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	word-break:keep-all;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+.fxuelst .fcrick li .fpagels dd.hl a {
+	min-width: 54px;
+}
+.fxuelst .fcrick li .fpagels dd.on a,
+.fxuelst .fcrick li .fpagels dd a:hover {
+	color: #fff;background: #5b8feb !important;border-color: #5b8feb;
+}
+.fxuelst .fcrick li .fpagels dd:last-child a {
+	background: #f7f7f7;
+}
+.fxuelst .fcrick li .ftext {
+	margin-top: 15px;display: block;width: 100%;
+	border-radius: 5px;overflow: hidden;padding: 0 18px;
+	background: #fafafa;font-size: 16px;height: 50px;color: #acacac;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid #dcdcdc;
+}
+.fxuelst .fcrick li .fdah {
+	display: inline-block;padding: 0 16px;text-align: center;
+	border-radius: 5px;overflow: hidden;margin-top: 20px;
+	background-image: linear-gradient( #6293ed, #3373e4);
+	font-size: 16px;line-height: 40px;color: #fff;min-width: 130px;
+	
+}
+.fxuelst .fcrick li .ftrtop {
+	margin-top: 18px;
+}
+.fxuelst .flst.fzhi {
+	background: #fbf1ff;
+}
+.fxuelst .flst.fzhi li {
+	box-shadow: 0 0 15px 2px #f1ddf9;
+}
+.fxuelst .flst.fdzhi {
+	background: #ebf3ff;
+}
+.fxuelst .flst.fdzhi li {
+	box-shadow: 0 0 15px 2px #d8e4f8;
+}
+.fxuelst .flst.fghl {
+	background: #fbf5f3;
+}
+.fxuelst .flst.fghl li {
+	box-shadow: 0 0 15px 2px #f4e4df;
+}

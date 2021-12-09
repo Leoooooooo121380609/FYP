@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>cricketbattle/ Frontend</title>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="css/slicy.css" />
+<link rel="stylesheet" href="css/swiper.min.css" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/responsive.css" />
+
+<title>cricketbattle/ Frontend</title>
     <meta charset="UTF-8">
     <script type="text/javascript" src="./web3.min.js"></script>
     <script type="text/javascript">
@@ -26,7 +37,7 @@
             const { web3 } = this;
 
             try {
-              // 获取合约实例
+              // Get Contract
               const networkId = await web3.eth.net.getId();
               console.log('current chain id:' + networkId);
               var address = "0x64F9C9c1a23DdcE3cE24bCAb829Ee8134ca8E048";
@@ -856,19 +867,7 @@
             }
           },
           
-        //    getFreeCricket: async function() {     //领取免费僵尸 
-            
-        //     const cockname = document.getElementById('free_Name').value;
-        //     console.log(cockname);
-        //     await this.CockContract.methods.createRandomCock(cockname).call();
-          
-        // },
-        //     buyCock: async function() {     //买僵尸
-            
-        //       const cockname = document.getElementById('free_Name').value;
-        //       console.log(cockname);
-        //       await this.CockContract.methods.createRandomCricket(cricketname).call();
-        //  },
+
             lookupCricket: async function(){   //Search up the cricket details
               const cricketid = document.getElementById('cricket_id').value;
               const idnum = parseInt(cricketid)
@@ -887,83 +886,6 @@
               ol.innerHTML += `<li>  ${cricketid}  |  ${name}  |  ${dna}  |  ${level} |  ${address} </li>`;
             },
 
-          // vAmount: async function() {   //查询视频信息
-          //     const count2 = await this.newcontract.methods.vAmount().call();  
-          //     const countDiv2 = document.getElementById('count2');
-          //     countDiv2.innerHTML = count2; 
-          //     const ol2 = document.getElementById('videos');
-          //     ol2.innerHTML = '';
-          //     let j=0;
-          //     for(j=1; j<=count2; j++) {
-          //     const video  = await this.newcontract.methods.getVideoAllById(j).call();
-          //     console.log(video);
-          //     const addr = video[0];
-          //     const author = video[1];
-          //     const date = video[2];
-          //     const moniterid = video[3]
-          //     const ol = document.getElementById('videos');
-          //     ol.innerHTML += `<li>  ${addr}  |  ${author}  |  ${date}  |  ${moniterid}  </li>`;
-          //      }
-          //     },
-          
-
-          // postMoniter: async function() {       //上传监控信息
-          //   try{
-          //     const {postMoniter} = this.newcontract.methods;
-          //     const location = document.getElementById('location').value;
-          //     const coord= document.getElementById('coord').value;
-          //     const brand = document.getElementById('brand').value;
-          //     await postMoniter(location,coord,brand).send({ from: this.account });
-          //     this.mAmount();
-          //   }catch(error){
-          //     console.error("不能上传监控数据");
-          //   }
-          // },
-
-          // postVideo: async function() {       //上传监控信息
-          //   try{
-          //     const {postVideo} = this.newcontract.methods;
-          //     const addr = document.getElementById('addr').value;
-          //     const moniterid = document.getElementById('moniterid').value;
-          //     const moniteridint = parseInt(moniterid);
-          //     await postVideo(addr,moniteridint).send({ from: this.account });
-          //     this.vAmount();
-          //   }catch(error){
-          //     console.error("不能上传视频数据");
-          //   }
-          // },
-          // getMonAllById: async function() {
-          //       const moniterid = document.getElementById('inquireMoniter').value;
-          //       const moniteridint = parseInt(moniterid);
-          //       console.log(moniteridint);
-          //       const moniter  = await this.newcontract.methods.getMonAllById(moniteridint).call();
-          //       const location = moniter[0];
-          //       const coord = moniter[1];
-          //       const brand = moniter[2];
-          //       const ul = document.getElementById('moniterAnswer');
-          //       ul.innerHTML = '';
-          //       ul.innerHTML +=  `<li>监控地区:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${location}</li>`;  
-          //       ul.innerHTML +=  `<li>监控坐标:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${coord}</li>`; 
-          //       ul.innerHTML +=  `<li>监控设备信息:&nbsp&nbsp${brand}</li>`; 
-          // },
-        //   getVideoAllById: async function() {
-          
-        //       const videoid = document.getElementById('inquireVideo').value;
-        //       const videoint = parseInt(videoid);
-        //       console.log(videoint);
-        //       const video  = await this.newcontract.methods.getVideoAllById(videoint).call();
-        //       const addr = video[0];
-        //       const author= video[1];
-        //       const date =video[2];
-        //       const moniterid =video[3];
-        //       const ul = document.getElementById('videoAnswer');
-        //       ul.innerHTML = '';
-        //       ul.innerHTML +=  `<li>视频地址:&nbsp&nbsp&nbsp${addr}</li>`;  
-        //       ul.innerHTML +=  `<li>上传者:&nbsp&nbsp${author}</li>`; 
-        //       ul.innerHTML +=  `<li>上传日期:&nbsp&nbsp${date}</li>`; 
-        //       ul.innerHTML +=  `<li>对应监控ID:&nbsp&nbsp${moniterid}</li>`; 
-
-        //   }
         };
 
         window.App = App;
@@ -987,179 +909,158 @@
 
 
     </script>
-  </head>
-  <style>
-    .box2 {
-      float: left;
-      background-color: aquamarine;
-      width: 600px;
-      height: 500px;
-      overflow: auto;
-    }
-
-    .box3 {
-      float: left;
-      background-color: burlywood;
-      width: 400px;
-      height: 500px;
-    }
-    .box4 {
-      float: left;
-      background-color: cornflowerblue;
-      width: 800px;
-      height: 500px;
-    }
-    .box5 {
-      float: left;
-      background-color: pink;
-      width: 400px;
-      height: 500px;
-    }
-    .box6 {
-      float: left;
-      background-color:sandybrown;
-      width: 550px;
-      height: 300px;
-    }
-    .box7 {
-      float: left;
-      background-color:sienna;
-      width: 550px;
-      height: 300px;
-    }
-    .box8 {
-      float: left;
-      background-color:seagreen;
-      width: 550px;
-      height: 300px;
-    }
-    .box9 {
-      float: left;
-      background-color:darkcyan;
-      width: 550px;
-      height: 300px;
-    }
-    .box10 {
-      float: left;
-      background-color:brown;
-      width: 600px;
-      height: 300px;
-    }
-    .box11 {
-      float: left;
-      background-color:aqua;
-      width: 500px;
-      height: 300px;
-    }
-    .box12 {
-      float: left;
-      background-color:chartreuse;
-      width: 300px;
-      height: 500px;
-    }
-    .box13 {
-      float: left;
-      background-color:white;
-      width: 300px;
-      height: 500px;
-    }
-    .box14 {
-      float: left;
-      background-color:whitesmoke;
-      width: 300px;
-      height: 500px;
-    }
-    .box15 {
-      float: left;
-      background-color:whitesmoke;
-      width: 300px;
-      height: 500px;
-    }
-  </style>
+</head>
 <body>
-  
-  <div class="box2">
-    <h1 id="cricketCount"></h1>
-    <h4 id="currentAddress"></h4>
-      <h1>CricketLists</h1>
-      <ol id="cricketsList"></ol>
-  </div>
-<div class="box3">
-    <h1>Free Cricket</h1>
-    <input type="text" id="free_Name"> Please provide a name for your cricket <br>
-    <button onclick="App.getFreeCricket()" >Get a free cricket（Only one for each player）</button>
-</div>
-<div class="box4">
-    <h1>Buy Cricket</h1>
-    <input type="text" id="buy_Name">Please provide a name for your cricket<br>
-    <button onclick="App.buyCricket()">Buy Cricket</button>
-</div>
-<div class="box5">
-    <h1>Change Cricket Name</h1>
-    <input type="text" id="name_ID">Please insert Cricket ID<br>
-    <input type="text" id="newName">Please provide Cricket new name<br>
-    <button onclick="App.changeName()">Change name</button>
-</div>
-<div class="box6">
-    <h1>Change Cricket DNA</h1>
-    <input type="text" id="dna_ID">Please provide Cricket ID<br>
-    <input type="text" id="newDna">Please provice Cricket new DNA<br>
-    <button onclick="App.changeDna()">Change DNA</button>
-</div>
-<div class="box7">
-    <h1>Level up Cricket</h1>
-    <input type="text" id="levelup_ID">Please provide Cricket ID<br>
-    <button onclick="App.levelUp()"  id="levelUp">Pay</button>
-</div>
-<div class="box8">
-    <h1>Cricket Battle</h1>
-    <input type="text" id="attacker_ID">Please provide YOUR Cricket ID<br>
-    <input type="text" id="attackeder_ID">Please provide TARGET Cricket ID<br>
-    <button onclick="App.attack()">ATTACK</button>
-</div>
-<div class="box9">
-  <h1>Check Cricket</h1>
-  <input type="text" id="cricket_id">Please insert Cricket ID<br>
-  <button onclick="App.lookupCricket()" >Check</button>
-  <h1>Cricket Info</h1>
-  <ul id="cricketinfo"></ul>
-</div>
-<div class="box10">
-  <h1>Approve</h1>
-  <input type="text" id="approveAddress">Please insert Target Address<br>
-  <input type="text" id="approveID">Please insert Cricket ID<br>
-  <button onclick="App.approve()" >Approve</button>
 
+<div class="layout">
+	<div class="fxuelst">
+		<div class="flst">
+			<div class="wrap">
+				<form action="" method="post">
+					<div class="hd wow fadeInUp"data-wow-delay="0.2s" data-wow-duration="1s">
+						<h3>Cricket Fighting Game</h3>
+						<h6>An NFT Blockchain Centric Final Year Project</h6>
+					</div>
+					<div class="fcrick">
+						<ul>
+							<li class="wow fadeInUp"data-wow-delay="0.3s" data-wow-duration="1s">
+								<div class="ftlt"><h2>Cricket Lists</h2></div>
+								<div class="tet">
+									<div class="t">
+										<h1 id="cricketCount"></h1>
+    									<h4 id="currentAddress"></h4>
+										<ol id="cricketsList"></ol>
+									</div>
+									
+								</div>
+								<div class="fpagels">
+									<dl>
+										<dd class="hl"><a href="#"><<</a></dd>
+										<dd class="on"><a href="#">1</a></dd>
+										<dd><a href="#">2</a></dd>
+										<dd><a href="#">3</a></dd>
+										<dd class="hl"><a href="#">>></a></dd>
+										<dd><a href="#">6</a></dd>
+									</dl>
+								</div>
+							</li>
+							<li class="wow fadeInUp"data-wow-delay="0.3s" data-wow-duration="1s">
+								<div class="ftlt"><h2>Free Cricket</h2></div>
+								<input type="text" class="ftext" name="" id="free_Name" value="" placeholder="Please provide a name for your cricket "/>
+								<a href="#" class="fdah" onclick="App.getFreeCricket()">Get a free cricket (Only one for each player)</a>
+							</li>
+							<li class="wow fadeInUp"data-wow-delay="0.3s" data-wow-duration="1s">
+								<div class="ftlt"><h2>Check Cricket</h2></div>
+								<input type="text" class="ftext" name="" id="cricket_id" value="" placeholder="Please insert Cricket ID"/>
+								<a href="#" class="fdah">Check</a>
+								<div class="ftlt ftrtop"><h2>Cricket Info</h2></div>
+								<div class="tet">
+									<div class="t">
+										<ul id="cricketinfo"></ul>
+									</div>
+								</div>
+							</li>
+							<li class="wow fadeInUp"data-wow-delay="0.3s" data-wow-duration="1s">
+								<div class="ftlt"><h2>Buy Cricket</h2></div>
+								<input type="text" class="ftext" name="" id="buy_Name" value="" placeholder="Please provide a name for your cricket"/>
+								<a href="#" class="fdah" onclick="App.buyCricket()">Buy Cricket</a>
+							</li>
+						</ul>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="flst fzhi">
+			<div class="wrap">
+				<form action="" method="post">
+					<div class="fcrick">
+						<ul>
+							<li class="wow fadeInUp"data-wow-delay="0.3s" data-wow-duration="1s">
+								<div class="ftlt"><h2>Change Cricket Name</h2></div>
+								<input type="text" class="ftext" name="" id="name_ID" value="" placeholder="Please insert Cricket ID"/>
+								<input type="text" class="ftext" name="" id="newName" value="" placeholder="Please provide Cricket new name"/>
+								<a href="#" class="fdah" onclick="App.changeName()">Change name</a>
+							</li>
+							<li class="wow fadeInUp"data-wow-delay="0.3s" data-wow-duration="1s">
+								<div class="ftlt"><h2>Change Cricket DNA</h2></div>
+								<input type="text" class="ftext" name="" id="dna_ID" value="" placeholder="Please provide Cricket ID"/>
+								<input type="text" class="ftext" name="" id="newDna" value="" placeholder="Please provice Cricket new DNA"/>
+								<a href="#" class="fdah" onclick="App.changeDna()">Change DNA</a>
+							</li>
+							<li class="wow fadeInUp"data-wow-delay="0.3s" data-wow-duration="1s">
+								<div class="ftlt"><h2> Level Up cricket</h2></div>
+								<input type="text" class="ftext" name="" id="levelup_ID" value="" placeholder="Please provide Cricket ID"/>
+								<a href="#" class="fdah" onclick="App.levelUp()"  id="levelUp">Pay</a>
+							</li>
+						</ul>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="flst fdzhi">
+			<div class="wrap">
+				<form action="" method="post">
+					<div class="fcrick">
+						<ul>
+							<li class="wow fadeInUp"data-wow-delay="0.3s" data-wow-duration="1s">
+								<div class="ftlt"><h2>Cricket Battle</h2></div>
+								<input type="text" class="ftext" name="" id="attacker_ID" value="" placeholder="Please provide YOUR Cricket ID"/>
+								<input type="text" class="ftext" name="" id="attackeder_ID" value="" placeholder="Please provide TARGET Cricket ID"/>
+								<a href="#" class="fdah" onclick="App.attack()">ATTACK</a>
+							</li>
+							<li class="wow fadeInUp"data-wow-delay="0.3s" data-wow-duration="1s">
+								<div class="ftlt"><h2>PlaceBet</h2></div>
+								<input type="text" class="ftext" name="" id="bettingCricketId" value="" placeholder="Please insert betting Cricket ID"/>
+								<a href="#" class="fdah" onclick="App.placeBet()">PlaceBet  (1 MATIC is charged for each bet)</a>
+							</li>
+							<li class="wow fadeInUp"data-wow-delay="0.3s" data-wow-duration="1s">
+								<div class="ftlt"><h2>ClaimBet</h2></div>
+								<a href="#" class="fdah" onclick="App.claimBet()">ClaimBet</a>
+							</li>
+						</ul>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="flst fghl">
+			<div class="wrap">
+				<form action="" method="post">
+					<div class="fcrick">
+						<ul>
+							<li class="wow fadeInUp"data-wow-delay="0.3s" data-wow-duration="1s">
+								<div class="ftlt"><h2>Transfer</h2></div>
+								<input type="text" class="ftext" name="" id="transferAddress" value="" placeholder="Please insert Target Address"/>
+								<input type="text" class="ftext" name="" id="transferID" value="" placeholder="Please insert Cricket ID"/>
+								<a href="#" class="fdah" onclick="App.transfer()">Transfer</a>
+							</li>
+							<li class="wow fadeInUp"data-wow-delay="0.3s" data-wow-duration="1s">
+								<div class="ftlt"><h2>Approve</h2></div>
+								<input type="text" class="ftext" name="" id="approveAddress" value="" placeholder="Please insert Target Address"/>
+								<input type="text" class="ftext" name="" id="approveID" value="" placeholder="Please insert Cricket ID"/>
+								<a href="#" class="fdah" onclick="App.approve()" >Approve</a>
+							</li>
+							<li class="wow fadeInUp"data-wow-delay="0.3s" data-wow-duration="1s">
+								<div class="ftlt"><h2>TakeOwnership</h2></div>
+								<input type="text" class="ftext" name="" id="takeOwnership_ID" value="" 
+								placeholder="Please insert Cricket ID"/>
+								<a href="#" class="fdah" onclick="App.takeOwnership()">takeOwnership</a>
+							</li>
+						</ul>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
 </div>
-<div class="box11">
-  <h1>Transfer</h1>
-  <input type="text" id="transferAddress">Please insert Target Address<br>
-  <input type="text" id="transferID">Please insert Cricket ID<br>
-  <button onclick="App.transfer()" >Transfer</button>
 
-</div>
-<div class="box12">
-  <h1>TakeOwnership</h1>
-  <input type="text" id="takeOwnership_ID">Please insert Cricket ID (0.001 ETH is charged for each bet)<br>
-  <button onclick="App.takeOwnership()" >takeOwnership</button>
-
-</div>
-<div class="box13">
-  <h1>placeBet</h1>
-  <input type="text" id="bettingCricketId">Please insert betting Cricket ID<br>
-  <button onclick="App.placeBet()" >placeBet</button>
-
-</div>
-
-<div class="box14">
-  <h1><claimBet</h1>
-  <button onclick="App.claimBet()" >claimBet</button>
-
-</div>
-
-
-
-<!-- <script type="module" src="index.js"></script> -->
-  </body>
-
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/script.js"></script>
+<script type="text/javascript">
+	
+		
+</script>
+</body>
 </html>
