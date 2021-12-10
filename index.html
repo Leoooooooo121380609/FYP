@@ -883,7 +883,7 @@
               const ol = document.getElementById('cricketinfo');
 
               ol.innerHTML = '';
-              ol.innerHTML += `<li>  ${cricketid}  |  ${name}  |  ${dna}  |  ${level} |  ${address} </li>`;
+              ol.innerHTML += `<span class='errorh5'> <li>  ${cricketid}  |  ${name}  |  ${dna}  |  ${level} |  ${address} </li> </span>`;
             },
 
         };
@@ -913,7 +913,7 @@
 <style>
   .box2 {
     float: left;
-    background-color: none;
+    background-color: #eefaf7;
     width: 600px;
     height: 500px;
     overflow: auto;
@@ -921,7 +921,7 @@
 
   .errorh5 {
     float: right;font-size: 14px;line-height: 1.5;color: #666666;
-    background-color: none;
+    background-color: #eefaf7;
 	width: calc(100% - 13px);
   }
   .errorh6 {
