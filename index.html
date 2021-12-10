@@ -697,9 +697,9 @@
           cricketList: async function() {   //Checklist for all the battle crickets
             const allNum= await this.CricketContract.methods.getCricketsNum().call(); 
             const countdiv = document.getElementById('cricketCount');
-            countdiv.innerHTML = `<span class='errorh6'>Total number of crickets：${allNum}</span>`; 
+            countdiv.innerHTML = `Total number of crickets：${allNum}`; 
             const addressdiv = document.getElementById('currentAddress');
-            addressdiv.innerHTML = `<span class='errorh6'>Current user adress：${this.account}</span>`; 
+            addressdiv.innerHTML = `Current user adress：${this.account}`; 
             const ol = document.getElementById('cricketsList');
             const allNum1 = parseInt(allNum);
             console.log(allNum1);
