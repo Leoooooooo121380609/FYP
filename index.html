@@ -883,7 +883,7 @@
               const ol = document.getElementById('cricketinfo');
 
               ol.innerHTML = '';
-              ol.innerHTML += `<span class='errorh5'> <li>  Cricketid:    ${i} <br>Cricketname  :${cricketName}  <br>Cricket DNA:  ${cricketDna} <br>Cricket level:   ${level} <br>Cricketowner address：  ${address}</li> </span>`;
+              ol.innerHTML += `<span class='errorh5'> <li>  Cricketid:    ${cricketid} <br>Cricketname  :${name}  <br>Cricket DNA:  ${dna} <br>Cricket level:   ${level} <br>Cricketowner address：  ${address}</li> </span>`;
             },
 
         };
@@ -921,7 +921,7 @@
 
   .errorh5 {
     float: right;font-size: 14px;line-height: 1.5;color: #666666;
-    background-color: #fff;
+
 	width: calc(100% - 13px);
   }
   .errorh6 {
