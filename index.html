@@ -697,9 +697,9 @@
           cricketList: async function() {   //Checklist for all the battle crickets
             const allNum= await this.CricketContract.methods.getCricketsNum().call(); 
             const countdiv = document.getElementById('cricketCount');
-            countdiv.innerHTML = `Total number of crickets：${allNum}`; 
+            countdiv.innerHTML = `<span class='errorh6'>Total number of crickets：${allNum}</span>`; 
             const addressdiv = document.getElementById('currentAddress');
-            addressdiv.innerHTML = `Current user adress：${this.account}`; 
+            addressdiv.innerHTML = `<span class='errorh6'>Current user adress：${this.account}</span>`; 
             const ol = document.getElementById('cricketsList');
             const allNum1 = parseInt(allNum);
             console.log(allNum1);
@@ -711,7 +711,7 @@
                 const level = cricketInfo[2];
                 const address = cricketInfo[3];
 
-                ol.innerHTML += `<span class='error'> <li>  Cricketid:    ${i} <br>Cricketname  :${cricketName}  <br>Cricket DNA:  ${cricketDna} <br>Cricket level:   ${level} <br>Cricketowner address：  ${address}</li> </span>`;
+                ol.innerHTML += `<span class='errorh5'> <li>  Cricketid:    ${i} <br>Cricketname  :${cricketName}  <br>Cricket DNA:  ${cricketDna} <br>Cricket level:   ${level} <br>Cricketowner address：  ${address}</li> </span>`;
             }
           },
           getFreeCricket: async function() {       //get a free cricket
@@ -919,10 +919,16 @@
     overflow: auto;
   }
 
-  .error {
+  .errorh5 {
     float: right;font-size: 14px;line-height: 1.5;color: #666666;
+    background-color: none;
 	width: calc(100% - 13px);
   }
+  .errorh6 {
+    float: left;font-size: 14px;line-height: 1.5;color: #666666;width: 13px;
+    background-color: none;
+  }
+  
 </style>
 <body>
 
@@ -940,9 +946,9 @@
 							<li class="wow fadeInUp"data-wow-delay="0.3s" data-wow-duration="1s">
 								<div class="ftlt"><h2>Cricket Lists</h2></div>
 								<div class="box2">
-                  <h1 id="cricketCount"></h1>
-                  <h4 id="currentAddress"></h4>
-                    <h1>CricketLists</h1>
+                  <h6 id="cricketCount"></h6>
+                  <h6 id="currentAddress"></h6>
+                    <h6>CricketLists</h6>
                     <ol id="cricketsList"></ol>
                 </div>
 								<div class="fpagels">

@@ -46,6 +46,14 @@
 	float: right;font-size: 14px;line-height: 1.5;color: #666666;
 	width: calc(100% - 13px);
 }
+
+.fxuelst .fcrick li .tet .box2 h6 {
+	float: left;font-size: 14px;line-height: 1.5;color: #666666;width: 13px;
+}
+.fxuelst .fcrick li .tet .box2 h5 {
+	float: right;font-size: 14px;line-height: 1.5;color: #666666;
+	width: calc(100% - 13px);
+}	
 .fxuelst .fcrick li .fpagels dl {
 	margin: 20px auto 0;font-size: 0;text-align: center;
 }
