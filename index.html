@@ -711,7 +711,7 @@
                 const level = cricketInfo[2];
                 const address = cricketInfo[3];
 
-                ol.innerHTML += `<li>  Cricketid:    ${i} <br>Cricketname  :${cricketName}  <br>Cricket DNA:  ${cricketDna} <br>Cricket level:   ${level} <br>Cricketowner address：  ${address}</li>`;
+                ol.innerHTML += `<span class='error'> <li>  Cricketid:    ${i} <br>Cricketname  :${cricketName}  <br>Cricket DNA:  ${cricketDna} <br>Cricket level:   ${level} <br>Cricketowner address：  ${address}</li> </span>`;
             }
           },
           getFreeCricket: async function() {       //get a free cricket
@@ -914,9 +914,14 @@
   .box2 {
     float: left;
     background-color: none;
-    width: 500px;
-    height: 200px;
+    width: 600px;
+    height: 500px;
     overflow: auto;
+  }
+
+  .error {
+    float: right;font-size: 14px;line-height: 1.5;color: #666666;
+	width: calc(100% - 13px);
   }
 </style>
 <body>
