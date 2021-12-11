@@ -752,6 +752,7 @@
               this.account = accounts[0];
               // this.mAmount();
               this.cricketList();
+              this.winnerList();
               // this.vAmount();
             } catch (error) {
               console.error("Could not connect to contract or chain.");
@@ -792,7 +793,7 @@
               
                 const address = cricketInfo[3];
 
-                ol.innerHTML += `<li>  Cricketid:    ${winnerID} <br>Cricketname  :${cricketName} <br>Cricketowner address：  ${address}</li>`;
+                ol.innerHTML += `<span class='errorh5'> <li>  Cricketid:    ${winnerID} <br>Cricketname  :${cricketName} <br>Cricketowner address：  ${address}</li> </span>`;
             }
           },
           getFreeCricket: async function() {       //get a free cricket
@@ -1123,7 +1124,7 @@
 							</li>
               <li class="wow fadeInUp"data-wow-delay="0.3s" data-wow-duration="1s">
 								<div class="ftlt"><h2>Winner List</h2></div>
-                    <ol id="cricketsList"></ol>
+                    <ol id="winners"></ol>
 							</li>
 							<li class="wow fadeInUp"data-wow-delay="0.3s" data-wow-duration="1s">
 								<div class="ftlt"><h2>PlaceBet</h2></div>
