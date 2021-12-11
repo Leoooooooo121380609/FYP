@@ -40,45 +40,114 @@
               // Get Contract
               const networkId = await web3.eth.net.getId();
               console.log('current chain id:' + networkId);
-              var address = "0x64F9C9c1a23DdcE3cE24bCAb829Ee8134ca8E048";
+              var address = "0x4EA703111283A744fcce23A857c4b608c82c8b46";
               var abi = [
                         {
                           "anonymous": false,
                           "inputs": [
-                            {
-                              "indexed": true,
-                              "internalType": "address",
-                              "name": "owner",
-                              "type": "address"
-                            },
-                            {
-                              "indexed": true,
-                              "internalType": "address",
-                              "name": "approved",
-                              "type": "address"
-                            },
-                            {
-                              "indexed": true,
-                              "internalType": "uint256",
-                              "name": "tokenId",
-                              "type": "uint256"
-                            }
+                          {
+                            "indexed": true,
+                            "internalType": "address",
+                            "name": "owner",
+                            "type": "address"
+                          },
+                          {
+                            "indexed": true,
+                            "internalType": "address",
+                            "name": "approved",
+                            "type": "address"
+                          },
+                          {
+                            "indexed": true,
+                            "internalType": "uint256",
+                            "name": "tokenId",
+                            "type": "uint256"
+                          }
                           ],
                           "name": "Approval",
                           "type": "event"
                         },
                         {
+                          "anonymous": false,
                           "inputs": [
-                            {
-                              "internalType": "address",
-                              "name": "to",
-                              "type": "address"
-                            },
-                            {
-                              "internalType": "uint256",
-                              "name": "tokenId",
-                              "type": "uint256"
-                            }
+                          {
+                            "indexed": false,
+                            "internalType": "uint256",
+                            "name": "cricketId",
+                            "type": "uint256"
+                          },
+                          {
+                            "indexed": false,
+                            "internalType": "string",
+                            "name": "name",
+                            "type": "string"
+                          },
+                          {
+                            "indexed": false,
+                            "internalType": "uint256",
+                            "name": "dna",
+                            "type": "uint256"
+                          }
+                          ],
+                          "name": "NewCricket",
+                          "type": "event"
+                        },
+                        {
+                          "anonymous": false,
+                          "inputs": [
+                          {
+                            "indexed": true,
+                            "internalType": "address",
+                            "name": "previousOwner",
+                            "type": "address"
+                          },
+                          {
+                            "indexed": true,
+                            "internalType": "address",
+                            "name": "newOwner",
+                            "type": "address"
+                          }
+                          ],
+                          "name": "OwnershipTransferred",
+                          "type": "event"
+                        },
+                        {
+                          "anonymous": false,
+                          "inputs": [
+                          {
+                            "indexed": true,
+                            "internalType": "address",
+                            "name": "from",
+                            "type": "address"
+                          },
+                          {
+                            "indexed": true,
+                            "internalType": "address",
+                            "name": "to",
+                            "type": "address"
+                          },
+                          {
+                            "indexed": true,
+                            "internalType": "uint256",
+                            "name": "tokenId",
+                            "type": "uint256"
+                          }
+                          ],
+                          "name": "Transfer",
+                          "type": "event"
+                        },
+                        {
+                          "inputs": [
+                          {
+                            "internalType": "address",
+                            "name": "to",
+                            "type": "address"
+                          },
+                          {
+                            "internalType": "uint256",
+                            "name": "tokenId",
+                            "type": "uint256"
+                          }
                           ],
                           "name": "approve",
                           "outputs": [],
@@ -87,16 +156,16 @@
                         },
                         {
                           "inputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "cricketId",
-                              "type": "uint256"
-                            },
-                            {
-                              "internalType": "uint256",
-                              "name": "targetId",
-                              "type": "uint256"
-                            }
+                          {
+                            "internalType": "uint256",
+                            "name": "cricketId",
+                            "type": "uint256"
+                          },
+                          {
+                            "internalType": "uint256",
+                            "name": "targetId",
+                            "type": "uint256"
+                          }
                           ],
                           "name": "attack",
                           "outputs": [],
@@ -105,11 +174,75 @@
                         },
                         {
                           "inputs": [
-                            {
-                              "internalType": "string",
-                              "name": "name",
-                              "type": "string"
-                            }
+                          {
+                            "internalType": "address",
+                            "name": "owner",
+                            "type": "address"
+                          }
+                          ],
+                          "name": "balanceOf",
+                          "outputs": [
+                          {
+                            "internalType": "uint256",
+                            "name": "balance",
+                            "type": "uint256"
+                          }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [],
+                          "name": "battleCount",
+                          "outputs": [
+                          {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                          }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [],
+                          "name": "bettingStake",
+                          "outputs": [
+                          {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                          }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                          {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                          }
+                          ],
+                          "name": "bettors",
+                          "outputs": [
+                          {
+                            "internalType": "address",
+                            "name": "",
+                            "type": "address"
+                          }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                          {
+                            "internalType": "string",
+                            "name": "name",
+                            "type": "string"
+                          }
                           ],
                           "name": "buyRandomCricket",
                           "outputs": [],
@@ -118,16 +251,16 @@
                         },
                         {
                           "inputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "cricketId",
-                              "type": "uint256"
-                            },
-                            {
-                              "internalType": "uint256",
-                              "name": "dna",
-                              "type": "uint256"
-                            }
+                          {
+                            "internalType": "uint256",
+                            "name": "cricketId",
+                            "type": "uint256"
+                          },
+                          {
+                            "internalType": "uint256",
+                            "name": "dna",
+                            "type": "uint256"
+                          }
                           ],
                           "name": "changeDna",
                           "outputs": [],
@@ -136,20 +269,39 @@
                         },
                         {
                           "inputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "cricketId",
-                              "type": "uint256"
-                            },
-                            {
-                              "internalType": "string",
-                              "name": "name",
-                              "type": "string"
-                            }
+                          {
+                            "internalType": "uint256",
+                            "name": "cricketId",
+                            "type": "uint256"
+                          },
+                          {
+                            "internalType": "string",
+                            "name": "name",
+                            "type": "string"
+                          }
                           ],
                           "name": "changeName",
                           "outputs": [],
                           "stateMutability": "nonpayable",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                          {
+                            "internalType": "address",
+                            "name": "bettor",
+                            "type": "address"
+                          }
+                          ],
+                          "name": "checkBettorExist",
+                          "outputs": [
+                          {
+                            "internalType": "bool",
+                            "name": "",
+                            "type": "bool"
+                          }
+                          ],
+                          "stateMutability": "view",
                           "type": "function"
                         },
                         {
@@ -161,11 +313,11 @@
                         },
                         {
                           "inputs": [
-                            {
-                              "internalType": "string",
-                              "name": "name",
-                              "type": "string"
-                            }
+                          {
+                            "internalType": "string",
+                            "name": "name",
+                            "type": "string"
+                          }
                           ],
                           "name": "createRandomCricket",
                           "outputs": [],
@@ -173,12 +325,226 @@
                           "type": "function"
                         },
                         {
+                          "inputs": [],
+                          "name": "cricketCount",
+                          "outputs": [
+                          {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                          }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [],
+                          "name": "cricketPrice",
+                          "outputs": [
+                          {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                          }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
                           "inputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "cricketId",
-                              "type": "uint256"
-                            }
+                          {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                          }
+                          ],
+                          "name": "cricketToOwner",
+                          "outputs": [
+                          {
+                            "internalType": "address",
+                            "name": "",
+                            "type": "address"
+                          }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                          {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                          }
+                          ],
+                          "name": "crickets",
+                          "outputs": [
+                          {
+                            "internalType": "string",
+                            "name": "name",
+                            "type": "string"
+                          },
+                          {
+                            "internalType": "uint256",
+                            "name": "dna",
+                            "type": "uint256"
+                          },
+                          {
+                            "internalType": "uint16",
+                            "name": "winCount",
+                            "type": "uint16"
+                          },
+                          {
+                            "internalType": "uint16",
+                            "name": "lossCount",
+                            "type": "uint16"
+                          },
+                          {
+                            "internalType": "uint256",
+                            "name": "level",
+                            "type": "uint256"
+                          }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [],
+                          "name": "getBattleCount",
+                          "outputs": [
+                          {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                          }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                          {
+                            "internalType": "address",
+                            "name": "owner",
+                            "type": "address"
+                          }
+                          ],
+                          "name": "getCricketsByOwner",
+                          "outputs": [
+                          {
+                            "internalType": "uint256[]",
+                            "name": "",
+                            "type": "uint256[]"
+                          }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                          {
+                            "internalType": "uint256",
+                            "name": "_mid",
+                            "type": "uint256"
+                          }
+                          ],
+                          "name": "getCricketsInfoById",
+                          "outputs": [
+                          {
+                            "internalType": "string",
+                            "name": "",
+                            "type": "string"
+                          },
+                          {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                          },
+                          {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                          },
+                          {
+                            "internalType": "address",
+                            "name": "",
+                            "type": "address"
+                          }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [],
+                          "name": "getCricketsNum",
+                          "outputs": [
+                          {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                          }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                          {
+                            "internalType": "address",
+                            "name": "owner",
+                            "type": "address"
+                          }
+                          ],
+                          "name": "getCricketsOwnerNum",
+                          "outputs": [
+                          {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                          }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                          {
+                            "internalType": "uint256",
+                            "name": "_mid",
+                            "type": "uint256"
+                          }
+                          ],
+                          "name": "getWinnersId",
+                          "outputs": [
+                          {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                          }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [],
+                          "name": "isOwner",
+                          "outputs": [
+                          {
+                            "internalType": "bool",
+                            "name": "",
+                            "type": "bool"
+                          }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                          {
+                            "internalType": "uint256",
+                            "name": "cricketId",
+                            "type": "uint256"
+                          }
                           ],
                           "name": "levelUp",
                           "outputs": [],
@@ -186,56 +552,57 @@
                           "type": "function"
                         },
                         {
-                          "anonymous": false,
-                          "inputs": [
-                            {
-                              "indexed": false,
-                              "internalType": "uint256",
-                              "name": "cricketId",
-                              "type": "uint256"
-                            },
-                            {
-                              "indexed": false,
-                              "internalType": "string",
-                              "name": "name",
-                              "type": "string"
-                            },
-                            {
-                              "indexed": false,
-                              "internalType": "uint256",
-                              "name": "dna",
-                              "type": "uint256"
-                            }
+                          "inputs": [],
+                          "name": "levelUpFee",
+                          "outputs": [
+                          {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                          }
                           ],
-                          "name": "NewCricket",
-                          "type": "event"
+                          "stateMutability": "view",
+                          "type": "function"
                         },
                         {
-                          "anonymous": false,
-                          "inputs": [
-                            {
-                              "indexed": true,
-                              "internalType": "address",
-                              "name": "previousOwner",
-                              "type": "address"
-                            },
-                            {
-                              "indexed": true,
-                              "internalType": "address",
-                              "name": "newOwner",
-                              "type": "address"
-                            }
+                          "inputs": [],
+                          "name": "owner",
+                          "outputs": [
+                          {
+                            "internalType": "address",
+                            "name": "",
+                            "type": "address"
+                          }
                           ],
-                          "name": "OwnershipTransferred",
-                          "type": "event"
+                          "stateMutability": "view",
+                          "type": "function"
                         },
                         {
                           "inputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "bettingCricketId",
-                              "type": "uint256"
-                            }
+                          {
+                            "internalType": "uint256",
+                            "name": "tokenId",
+                            "type": "uint256"
+                          }
+                          ],
+                          "name": "ownerOf",
+                          "outputs": [
+                          {
+                            "internalType": "address",
+                            "name": "owner",
+                            "type": "address"
+                          }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                          {
+                            "internalType": "uint256",
+                            "name": "bettingCricketId",
+                            "type": "uint256"
+                          }
                           ],
                           "name": "placeBet",
                           "outputs": [],
@@ -250,393 +617,14 @@
                           "type": "function"
                         },
                         {
-                          "inputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "probability",
-                              "type": "uint256"
-                            }
-                          ],
-                          "name": "setAttackVictoryProbability",
-                          "outputs": [],
-                          "stateMutability": "nonpayable",
-                          "type": "function"
-                        },
-                        {
-                          "inputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "tokenId",
-                              "type": "uint256"
-                            }
-                          ],
-                          "name": "takeOwnership",
-                          "outputs": [],
-                          "stateMutability": "nonpayable",
-                          "type": "function"
-                        },
-                        {
-                          "inputs": [
-                            {
-                              "internalType": "address",
-                              "name": "to",
-                              "type": "address"
-                            },
-                            {
-                              "internalType": "uint256",
-                              "name": "tokenId",
-                              "type": "uint256"
-                            }
-                          ],
-                          "name": "transfer",
-                          "outputs": [],
-                          "stateMutability": "nonpayable",
-                          "type": "function"
-                        },
-                        {
-                          "anonymous": false,
-                          "inputs": [
-                            {
-                              "indexed": true,
-                              "internalType": "address",
-                              "name": "from",
-                              "type": "address"
-                            },
-                            {
-                              "indexed": true,
-                              "internalType": "address",
-                              "name": "to",
-                              "type": "address"
-                            },
-                            {
-                              "indexed": true,
-                              "internalType": "uint256",
-                              "name": "tokenId",
-                              "type": "uint256"
-                            }
-                          ],
-                          "name": "Transfer",
-                          "type": "event"
-                        },
-                        {
-                          "inputs": [
-                            {
-                              "internalType": "address",
-                              "name": "newOwner",
-                              "type": "address"
-                            }
-                          ],
-                          "name": "transferOwnership",
-                          "outputs": [],
-                          "stateMutability": "nonpayable",
-                          "type": "function"
-                        },
-                        {
-                          "inputs": [
-                            {
-                              "internalType": "address",
-                              "name": "owner",
-                              "type": "address"
-                            }
-                          ],
-                          "name": "balanceOf",
-                          "outputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "balance",
-                              "type": "uint256"
-                            }
-                          ],
-                          "stateMutability": "view",
-                          "type": "function"
-                        },
-                        {
-                          "inputs": [],
-                          "name": "bettingStake",
-                          "outputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "",
-                              "type": "uint256"
-                            }
-                          ],
-                          "stateMutability": "view",
-                          "type": "function"
-                        },
-                        {
-                          "inputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "",
-                              "type": "uint256"
-                            }
-                          ],
-                          "name": "bettors",
-                          "outputs": [
-                            {
-                              "internalType": "address",
-                              "name": "",
-                              "type": "address"
-                            }
-                          ],
-                          "stateMutability": "view",
-                          "type": "function"
-                        },
-                        {
-                          "inputs": [
-                            {
-                              "internalType": "address",
-                              "name": "bettor",
-                              "type": "address"
-                            }
-                          ],
-                          "name": "checkBettorExist",
-                          "outputs": [
-                            {
-                              "internalType": "bool",
-                              "name": "",
-                              "type": "bool"
-                            }
-                          ],
-                          "stateMutability": "view",
-                          "type": "function"
-                        },
-                        {
-                          "inputs": [],
-                          "name": "cricketCount",
-                          "outputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "",
-                              "type": "uint256"
-                            }
-                          ],
-                          "stateMutability": "view",
-                          "type": "function"
-                        },
-                        {
-                          "inputs": [],
-                          "name": "cricketPrice",
-                          "outputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "",
-                              "type": "uint256"
-                            }
-                          ],
-                          "stateMutability": "view",
-                          "type": "function"
-                        },
-                        {
-                          "inputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "",
-                              "type": "uint256"
-                            }
-                          ],
-                          "name": "crickets",
-                          "outputs": [
-                            {
-                              "internalType": "string",
-                              "name": "name",
-                              "type": "string"
-                            },
-                            {
-                              "internalType": "uint256",
-                              "name": "dna",
-                              "type": "uint256"
-                            },
-                            {
-                              "internalType": "uint16",
-                              "name": "winCount",
-                              "type": "uint16"
-                            },
-                            {
-                              "internalType": "uint16",
-                              "name": "lossCount",
-                              "type": "uint16"
-                            },
-                            {
-                              "internalType": "uint256",
-                              "name": "level",
-                              "type": "uint256"
-                            }
-                          ],
-                          "stateMutability": "view",
-                          "type": "function"
-                        },
-                        {
-                          "inputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "",
-                              "type": "uint256"
-                            }
-                          ],
-                          "name": "cricketToOwner",
-                          "outputs": [
-                            {
-                              "internalType": "address",
-                              "name": "",
-                              "type": "address"
-                            }
-                          ],
-                          "stateMutability": "view",
-                          "type": "function"
-                        },
-                        {
-                          "inputs": [
-                            {
-                              "internalType": "address",
-                              "name": "owner",
-                              "type": "address"
-                            }
-                          ],
-                          "name": "getCricketsByOwner",
-                          "outputs": [
-                            {
-                              "internalType": "uint256[]",
-                              "name": "",
-                              "type": "uint256[]"
-                            }
-                          ],
-                          "stateMutability": "view",
-                          "type": "function"
-                        },
-                        {
-                          "inputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "_mid",
-                              "type": "uint256"
-                            }
-                          ],
-                          "name": "getCricketsInfoById",
-                          "outputs": [
-                            {
-                              "internalType": "string",
-                              "name": "",
-                              "type": "string"
-                            },
-                            {
-                              "internalType": "uint256",
-                              "name": "",
-                              "type": "uint256"
-                            },
-                            {
-                              "internalType": "uint256",
-                              "name": "",
-                              "type": "uint256"
-                            },
-                            {
-                              "internalType": "address",
-                              "name": "",
-                              "type": "address"
-                            }
-                          ],
-                          "stateMutability": "view",
-                          "type": "function"
-                        },
-                        {
-                          "inputs": [],
-                          "name": "getCricketsNum",
-                          "outputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "",
-                              "type": "uint256"
-                            }
-                          ],
-                          "stateMutability": "view",
-                          "type": "function"
-                        },
-                        {
-                          "inputs": [
-                            {
-                              "internalType": "address",
-                              "name": "owner",
-                              "type": "address"
-                            }
-                          ],
-                          "name": "getCricketsOwnerNum",
-                          "outputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "",
-                              "type": "uint256"
-                            }
-                          ],
-                          "stateMutability": "view",
-                          "type": "function"
-                        },
-                        {
-                          "inputs": [],
-                          "name": "isOwner",
-                          "outputs": [
-                            {
-                              "internalType": "bool",
-                              "name": "",
-                              "type": "bool"
-                            }
-                          ],
-                          "stateMutability": "view",
-                          "type": "function"
-                        },
-                        {
-                          "inputs": [],
-                          "name": "levelUpFee",
-                          "outputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "",
-                              "type": "uint256"
-                            }
-                          ],
-                          "stateMutability": "view",
-                          "type": "function"
-                        },
-                        {
-                          "inputs": [],
-                          "name": "owner",
-                          "outputs": [
-                            {
-                              "internalType": "address",
-                              "name": "",
-                              "type": "address"
-                            }
-                          ],
-                          "stateMutability": "view",
-                          "type": "function"
-                        },
-                        {
-                          "inputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "tokenId",
-                              "type": "uint256"
-                            }
-                          ],
-                          "name": "ownerOf",
-                          "outputs": [
-                            {
-                              "internalType": "address",
-                              "name": "owner",
-                              "type": "address"
-                            }
-                          ],
-                          "stateMutability": "view",
-                          "type": "function"
-                        },
-                        {
                           "inputs": [],
                           "name": "returnSender",
                           "outputs": [
-                            {
-                              "internalType": "address",
-                              "name": "",
-                              "type": "address"
-                            }
+                          {
+                            "internalType": "address",
+                            "name": "",
+                            "type": "address"
+                          }
                           ],
                           "stateMutability": "view",
                           "type": "function"
@@ -645,11 +633,11 @@
                           "inputs": [],
                           "name": "roundBettorCount",
                           "outputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "",
-                              "type": "uint256"
-                            }
+                          {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                          }
                           ],
                           "stateMutability": "view",
                           "type": "function"
@@ -658,11 +646,87 @@
                           "inputs": [],
                           "name": "roundBettorCount_temp",
                           "outputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "",
-                              "type": "uint256"
-                            }
+                          {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                          }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                          {
+                            "internalType": "uint256",
+                            "name": "probability",
+                            "type": "uint256"
+                          }
+                          ],
+                          "name": "setAttackVictoryProbability",
+                          "outputs": [],
+                          "stateMutability": "nonpayable",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                          {
+                            "internalType": "uint256",
+                            "name": "tokenId",
+                            "type": "uint256"
+                          }
+                          ],
+                          "name": "takeOwnership",
+                          "outputs": [],
+                          "stateMutability": "nonpayable",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                          {
+                            "internalType": "address",
+                            "name": "to",
+                            "type": "address"
+                          },
+                          {
+                            "internalType": "uint256",
+                            "name": "tokenId",
+                            "type": "uint256"
+                          }
+                          ],
+                          "name": "transfer",
+                          "outputs": [],
+                          "stateMutability": "nonpayable",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                          {
+                            "internalType": "address",
+                            "name": "newOwner",
+                            "type": "address"
+                          }
+                          ],
+                          "name": "transferOwnership",
+                          "outputs": [],
+                          "stateMutability": "nonpayable",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                          {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                          }
+                          ],
+                          "name": "winners",
+                          "outputs": [
+                          {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                          }
                           ],
                           "stateMutability": "view",
                           "type": "function"
@@ -671,16 +735,16 @@
                           "inputs": [],
                           "name": "winningBettorCount",
                           "outputs": [
-                            {
-                              "internalType": "uint256",
-                              "name": "",
-                              "type": "uint256"
-                            }
+                          {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                          }
                           ],
                           "stateMutability": "view",
                           "type": "function"
                         }
-                      ];
+                        ];
               // const deployedNetwork = CricketContractArtifact.networks[networkId];
               this.CricketContract = new web3.eth.Contract(abi, address);
               // get accounts
@@ -714,6 +778,23 @@
                 ol.innerHTML += `<span class='errorh5'> <li>  Cricketid:    ${i} <br>Cricketname  :${cricketName}  <br>Cricket DNA:  ${cricketDna} <br>Cricket level:   ${level} <br>Cricketowner address：  ${address}</li> </span>`;
             }
           },
+          winnerList: async function() {   //Checklist for all the battle crickets
+            const battleCount = await this.CricketContract.methods.getBattleCount().call();
+            const ol = document.getElementById('winners'); 
+            const allNum2 = parseInt(battleCount);
+            console.log(battleCount);
+            ol.innerHTML = '';
+            for(let i=0; i<allNum2; i++) {
+                const winnerID = await this.CricketContract.methods.getWinnersId(i).call();
+                //const winID = parseInt(winnerID);
+                const cricketInfo = await this.CricketContract.methods.getCricketsInfoById(winnerID).call();
+                const cricketName = cricketInfo[0];
+              
+                const address = cricketInfo[3];
+
+                ol.innerHTML += `<li>  Cricketid:    ${winnerID} <br>Cricketname  :${cricketName} <br>Cricketowner address：  ${address}</li>`;
+            }
+          },
           getFreeCricket: async function() {       //get a free cricket
             try{
               const { createRandomCricket} = this.CricketContract.methods;
@@ -721,6 +802,7 @@
               await  createRandomCricket(cricketname).send({ from: this.account });
             //  this.mAmount();
             this.cricketList();
+            this.winnerList();
             }catch(error){
               console.error("Failed to get");
             }
@@ -733,6 +815,8 @@
               console.log(Web3.utils.toWei('0.1','ether'));
               await  buyRandomCricket(cricketname).send({ from: this.account, value: Web3.utils.toWei('0.001','ether')});
             this.cricketList();
+            this.winnerList();
+
             }catch(error){
               console.error("Unable to buy");
             }
@@ -745,6 +829,8 @@
               await  changeName(id,cricketname).send({ from: this.account });
             //  this.mAmount();
             this.cricketList();
+            this.winnerList();
+
             }catch(error){
               console.error("Error");
             }
@@ -758,6 +844,8 @@
               await  changeDna(idnum,cricketname).send({ from: this.account });
             //  this.mAmount();
             this.cricketList();
+            this.winnerList();
+
             }catch(error){
               console.error("Unable to change");
             }
@@ -770,6 +858,8 @@
               await levelUp(idnum).send({ from: this.account, value: Web3.utils.toWei('0.001','ether')});
             //  this.mAmount();
             this.cricketList();
+            this.winnerList();
+
             }catch(error){
               console.error("Error");
             }
@@ -784,6 +874,8 @@
               await attack(idnum1,idnum2).send({ from: this.account });
             //  this.mAmount();
             this.cricketList();
+            this.winnerList();
+
             }catch(error){
               console.error("Error");
             }
@@ -797,6 +889,8 @@
               await approve(add,idnum).send({ from: this.account });
             //  this.mAmount();
             this.cricketList();
+            this.winnerList();
+
             }catch(error){
               console.error("Error");
             }
@@ -810,6 +904,8 @@
               await transfer(add,idnum).send({ from: this.account });
             //  this.mAmount();
             this.cricketList();
+            this.winnerList();
+
             }catch(error){
               console.error("Error");
             }
@@ -823,6 +919,8 @@
               await takeOwnership(idnum).send({ from: this.account });
             //  this.mAmount();
             this.cricketList();
+            this.winnerList();
+
             }catch(error){
               console.error("Error");
             }
@@ -838,6 +936,8 @@
               await placeBet(int_id).send({ from: this.account, value: Web3.utils.toWei('1','ether')});
             //  this.mAmount();
             this.cricketList();
+            this.winnerList();
+
             }catch(error){
               console.error("Error");
             }
@@ -850,6 +950,8 @@
               await claimBet().send({ from: this.account });
             //  this.mAmount();
             this.cricketList();
+            this.winnerList();
+
             }catch(error){
               console.error("Error");
             }
@@ -862,6 +964,8 @@
               await returnBalance().send({ from: this.account });
             //  this.mAmount();
             this.cricketList();
+            this.winnerList();
+
             }catch(error){
               console.error("Error");
             }
@@ -1025,6 +1129,10 @@
 								<input type="text" class="ftext" name="" id="attacker_ID" value="" placeholder="Please provide YOUR Cricket ID"/>
 								<input type="text" class="ftext" name="" id="attackeder_ID" value="" placeholder="Please provide TARGET Cricket ID"/>
 								<a href="#" class="fdah" onclick="App.attack()">ATTACK</a>
+							</li>
+              <li class="wow fadeInUp"data-wow-delay="0.3s" data-wow-duration="1s">
+								<div class="ftlt"><h2>Winner List</h2></div>
+                    <ol id="cricketsList"></ol>
 							</li>
 							<li class="wow fadeInUp"data-wow-delay="0.3s" data-wow-duration="1s">
 								<div class="ftlt"><h2>PlaceBet</h2></div>
