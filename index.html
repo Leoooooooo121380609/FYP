@@ -992,11 +992,11 @@
             },
           
             lookupOwner: async function(){   //Search up the cricket details
-              const cricketid = document.getElementById('owner_address').value;
-              const own_num = parseInt(cricketid)
-              console.log(typeof(own_num));
-              console.log(own_num);
-              const cricketinfo = await this.CricketContract.methods.getCricketsByOwner(own_num).call();
+              const owner_address = document.getElementById('owner_address').value;
+              //const own_num = parseInt(cricketid)
+              //console.log(typeof(own_num));
+              //console.log(own_num);
+              const cricketinfo = await this.CricketContract.methods.getCricketsByOwner(owner_address).call();
               console.log(cricketinfo);
               
               const ol = document.getElementById('ownerinfo');
@@ -1006,7 +1006,8 @@
             },
 
             lookupnumCricket: async function() {   //Checklist for all the battle crickets
-              const allNum= await this.CricketContract.methods.getCricketsOwnerNum('owner_count_address').call(); 
+              const owner_address = document.getElementById('owner_address').value;
+              const allNum= await this.CricketContract.methods.getCricketsOwnerNum(owner_address).call(); 
               const countdiv = document.getElementById('cricketNumCount');
               countdiv.innerHTML = `<span class='errorh5'> Total number of crickets：${allNum} </span>`; 
             },
