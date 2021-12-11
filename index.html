@@ -990,7 +990,28 @@
               ol.innerHTML = '';
               ol.innerHTML += `<span class='errorh5'> <li>  Cricketid:    ${cricketid} <br>Cricketname  :${name}  <br>Cricket DNA:  ${dna} <br>Cricket level:   ${level} <br>Cricketowner address：  ${address}</li> </span>`;
             },
+          
+            lookupOwner: async function(){   //Search up the cricket details
+              const cricketid = document.getElementById('owner_address').value;
+              const own_num = parseInt(cricketid)
+              console.log(typeof(own_num));
+              console.log(own_num);
+              const cricketinfo = await this.CricketContract.methods.getCricketsByOwner(own_num).call();
+              console.log(cricketinfo);
+              
+              const ol = document.getElementById('ownerinfo');
 
+              ol.innerHTML = '';
+              ol.innerHTML += `<span class='errorh5'> <li>  Cricketid:    ${cricketinfo}  </span>`;
+            },
+
+            lookupnumCricket: async function() {   //Checklist for all the battle crickets
+              const allNum= await this.CricketContract.methods.getCricketsOwnerNum('owner_count_address').call(); 
+              const countdiv = document.getElementById('cricketNumCount');
+              countdiv.innerHTML = `<span class='errorh5'> Total number of crickets：${allNum} </span>`; 
+            },
+            
+            
         };
 
         window.App = App;
@@ -1078,6 +1099,28 @@
 								<div class="ftlt"><h2>Buy Cricket</h2></div>
 								<input type="text" class="ftext" name="" id="buy_Name" value="" placeholder="Please provide a name for your cricket"/>
 								<a href="#" class="fdah" onclick="App.buyCricket()">Buy Cricket</a>
+							</li>
+              <li class="wow fadeInUp"data-wow-delay="0.3s" data-wow-duration="1s">
+								<div class="ftlt"><h2>Check Owner</h2></div>
+								<input type="text" class="ftext" name="" id="owner_address" value="" placeholder="Please insert Owner Address"/>
+								<a href="#" class="fdah" onclick="App.lookupOwner()">Check</a>
+								<div class="ftlt ftrtop" ><h2>Owner Info</h2></div>
+								<div class="tet">
+									<div class="t">
+										<ul id="ownerinfo"></ul>
+									</div>
+								</div>
+							</li>
+              <li class="wow fadeInUp"data-wow-delay="0.3s" data-wow-duration="1s">
+								<div class="ftlt"><h2>Check Number of Crickets</h2></div>
+								<input type="text" class="ftext" name="" id='owner_count_address' value="" placeholder="Please insert Owner Address"/>
+								<a href="#" class="fdah" onclick="App.lookupnumCricket()">Check</a>
+								<div class="ftlt ftrtop" ><h2>No. of Crickets owned</h2></div>
+								<div class="tet">
+									<div class="t">
+										<ul id="cricketNumCount"></ul>
+									</div>
+								</div>
 							</li>
 						</ul>
 					</div>
