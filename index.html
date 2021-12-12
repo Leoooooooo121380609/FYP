@@ -993,8 +993,8 @@
           
             lookupOwner: async function(){   //Search up the cricket details
               const owner_address = document.getElementById('owner_address').value;
-              const countdiv = document.getElementById('address_cricket');
-              countdiv.innerHTML = `<span class='ftlt h2'>${owner_address}'s list of Crickets </span>`; 
+              //const countdiv = document.getElementById('address_cricket');
+              //countdiv.innerHTML = `<span class='ftlt h2'>${owner_address}'s list of Crickets </span>`; 
               //const own_num = parseInt(cricketid)
               //console.log(typeof(own_num));
               //console.log(own_num);
@@ -1125,7 +1125,7 @@
 								<div class="ftlt"><h2>Check Address's Crickets</h2></div>
 								<input type="text" class="ftext" name="" id="owner_address" value="" placeholder="Please insert Owner Address"/>
 								<a href="#" class="fdah" onclick="App.lookupOwner()">Check</a>
-								<div class="ftlt ftrtop" ><h2 id ='address_cricket'></h2></div>
+								<div class="ftlt ftrtop" ><h2>Requested Address's list of Crickets</h2></div>
 								<div class="tet">
 									<div class="t">
 										<ul id="ownerinfo"></ul>
