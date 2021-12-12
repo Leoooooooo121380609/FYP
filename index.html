@@ -993,16 +993,36 @@
           
             lookupOwner: async function(){   //Search up the cricket details
               const owner_address = document.getElementById('owner_address').value;
+              const countdiv = document.getElementById('address_cricket');
+              countdiv.innerHTML = `<span class='ftlt h2'>${owner_address}'s list of Crickets </span>`; 
               //const own_num = parseInt(cricketid)
               //console.log(typeof(own_num));
               //console.log(own_num);
-              const cricketinfo = await this.CricketContract.methods.getCricketsByOwner(owner_address).call();
-              console.log(cricketinfo);
-              
+              const cricketNum= await this.CricketContract.methods.getCricketsOwnerNum(owner_address).call();
+              const allNum2 = parseInt(cricketNum);
+              console.log(allNum2);
               const ol = document.getElementById('ownerinfo');
-
               ol.innerHTML = '';
-              ol.innerHTML += `<span class='errorh5'> <li>  Cricketid:    ${cricketinfo}  </span>`;
+              const cricketinfo = await this.CricketContract.methods.getCricketsByOwner(owner_address).call();
+              for(let i=0; i<allNum2; i++) {
+                  const cricketid = cricketinfo[i];
+                  //const winID = parseInt(winnerID);
+                  const cricketInfo = await this.CricketContract.methods.getCricketsInfoById(cricketid).call();
+                  const cricketName = cricketInfo[0];
+                const cricketDna  = cricketInfo[1];
+                const level = cricketInfo[2];
+                const address = cricketInfo[3];
+
+                ol.innerHTML += `<span class='errorh5'> <li>  Cricketid:    ${i} <br>Cricketname  :${cricketName}  <br>Cricket DNA:  ${cricketDna} <br>Cricket level:   ${level} <br>Cricketowner address：  ${address}</li> </span>`;
+            }
+              }
+              //const cricketinfo = await this.CricketContract.methods.getCricketsByOwner(owner_address).call();
+              //console.log(cricketinfo);
+              
+              //const ol = document.getElementById('ownerinfo');
+
+              //ol.innerHTML = '';
+              //ol.innerHTML += `<span class='errorh5'> <li>  Cricketid:    ${cricketinfo}  </span>`;
             },
 
             lookupnumCricket: async function() {   //Checklist for all the battle crickets
@@ -1105,7 +1125,7 @@
 								<div class="ftlt"><h2>Check Address's Crickets</h2></div>
 								<input type="text" class="ftext" name="" id="owner_address" value="" placeholder="Please insert Owner Address"/>
 								<a href="#" class="fdah" onclick="App.lookupOwner()">Check</a>
-								<div class="ftlt ftrtop" ><h2>Address's list of Crickets</h2></div>
+								<div class="ftlt ftrtop" ><h2 id ='address_cricket'></h2></div>
 								<div class="tet">
 									<div class="t">
 										<ul id="ownerinfo"></ul>
